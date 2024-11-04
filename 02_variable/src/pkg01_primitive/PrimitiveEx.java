@@ -35,9 +35,22 @@ public class PrimitiveEx {
     char g = '홍';
     System.out.println(g);
     
-    // 8. boolean : 이론상 1비트 (실제는 JVM이 담당), true 또는 False 젖장
+    // 8. boolean : 이론상 1비트 (실제는 JVM이 담당), true 또는 False 저장
     boolean h = true;
     System.out.println(h);
+    
+    // 변수 스코프 (scope)
+    // 변수가 선언된 중괄호 {} 내부에서만 접근이 가능하다 - 지역 변수(Local variable)
+    {
+      int x = 10;
+      System.out.println(x);
+    }
+    
+    // 상수 (constant variable)
+    // 할당된 값을 바꿀 수 없다. 반드시 초기 할당이 필요하다.
+    // final 키워드를 변수 선언 시 추가한다. 관례상 변수 명은 대문자로 작성한다.
+    final double PI = 3.14;
+    System.out.println(PI);
     
     
     
