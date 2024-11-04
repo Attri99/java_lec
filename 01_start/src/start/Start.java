@@ -7,10 +7,10 @@ public class Start {
     // single-line comment
     
     /*
-     * 
-     * multi-line comment
-     * 
-     * */
+     
+     multi-line comment
+     
+     */
     
     // Console 출력 방식
     System.out.print(1); // 출력

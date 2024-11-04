@@ -14,9 +14,9 @@ public class CastingEx {
     // 2. 강제 형 변환 (명시적 형 변환, casting)
     // 어떤 타입으로든 강제로 형 변환을 할 수 있다.
     
-    long x = 256L;
+    long x = 257L;
     int y = (int) x;
-    byte z = (byte) y;
+    byte z = (byte) y; // 1 00000001
     System.out.println(y);
     System.out.println(z);
   }
