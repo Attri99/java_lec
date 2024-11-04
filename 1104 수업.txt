@@ -1,0 +1,12 @@
+Java 프로그램 구조
+
+자바 프로젝트
+ ㄴ 소스폴더 (src)
+  ㄴ 패키지 (package)
+   ㄴ 클래스 (class)
+    ㄴ 메소드
+    ㄴ ...
+    ㄴ main 메소드(jvm : java virtual machine이 찾아서 실행하는 메소드)
+ ㄴ 실행폴더 (bin)
+
+내 이클립스 세팅값들이 java_lec에 .metadata라는 폴더에 저장되어 있다.
