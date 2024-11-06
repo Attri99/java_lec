@@ -7,7 +7,7 @@ public class TwoEx {
     
     // 배열 선언
     
-    String [][] seats;
+    String[][] seats;
     
     // 배열 생성
     seats = new String[3][2]; // 3행 2열의 테이블로 이해(실제로는 길이가 2인 1차원 배열이 3개 있는 것임)
@@ -26,20 +26,32 @@ public class TwoEx {
    
     // 2차원 배열을 구성하는 1차원 배열 확인
     
+    // 1번째 1차원 배열
+    for(int j = 0; j < seats[0].length; j++) {
+      System.out.print(seats[0][j] + " ");
+    }
+    System.out.println(); //  줄 바꿈
+    
     // 2번째 1차원 배열
     for(int j = 0; j<seats[1].length; j++) {
-      System.out.println(seats[0][j] + " ");
-    }
-    System.out.println();
-    for(int j = 0; j<seats[0].length; j++) {
-      System.out.println(seats[1][j] + " ");
-    }
-    System.out.println();
-    for(int j = 0; j<seats[2].length; j++) {
-      System.out.println(seats[2][j] + " ");
+      System.out.print(seats[1][j] + " ");
     }
     System.out.println();
     
+    //3번째 1차원 배열
+    for(int j = 0; j<seats[2].length; j++) {
+      System.out.print(seats[2][j] + " ");
+    }
+    System.out.println();
+  
+    
+    // 2차원 배열 순회1 - 일반 for 문
+    for(int i = 0; i < seats.length; i++) {
+      for(int j=0; j < seats[i].length; j++) {
+        System.out.print(seats[i][j] + " ");
+      }
+      System.out.println();
+    }
     
     // 2차원 배열 순회2 - Advanced for 문
     
@@ -59,25 +71,30 @@ public class TwoEx {
       
       // 2차원 배열 순회하기(일반 for문)
       for(int i = 0; i < menus.length; i++) {
-        for(int j = 0; j < menus.length; j++) {
-          System.out.print(menus);
+        for(int j = 0; j < menus[i].length; j++) {
+          System.out.print(menus[i][j] + " ");
         }
+        System.out.println();
       }
       
-      // 2차원 배열의 초기화 - 1
+      // 2차원 배열의 초기화 - 1 (선언할때만 가능한 초기화 방식)
       String[][] animals = {
           {"tiger", "lion"},
           {"dolphin", "shark"},
-          {"falcon", "eagle"};
-      }
+          {"falcon", "eagle"} };
+      
       //for 문 출력
       
       for(int i = 0; i < animals.length; i++) {
-        for(int j = 0; j <)
+        for(int j = 0; j < animals[i].length; j++) {
+         System.out.print(String.format("%10s", animals[i][j]));
+        }
+        System.out.println();
       }
       
       // 2차원 배열의 초기화 -2(선언과 초기화를 분리하는 방식)
       String[][] flowers;
+      
       flowers = new String[][] {
           {"장미", "안개꽃"},
           {"동백", "튤립", "프리지아"}
@@ -85,8 +102,8 @@ public class TwoEx {
       
       // for 문 출력
       
-      for (int i = 0; i < flower.length; i++) {
-        for(int j =0; j <flowers[i].length j++) {
+      for (int i = 0; i < flowers.length; i++) {
+        for(int j =0; j <flowers[i].length; j++) {
           System.out.print(String.format("%-5s", flowers[i][j]));
         }
         System.out.println();
