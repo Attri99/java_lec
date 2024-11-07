@@ -3,6 +3,7 @@ package pkg06_constructor;
 public class ConstructrorEx {
 
   public static void main(String[] args) {
+    
     // Sample 타입의 인스턴스 s 생성
     Sample s = new Sample();
     System.out.println(s.number);

@@ -7,11 +7,12 @@ public class FieldEx {
     Car car= new Car();
    
     car.gasStation(500);
-    System.out.println(car.fuel);
+    
     
     for (int i = 0; i <200; i++) {
       car.accel();
-    } car.panel();
+    } 
+    car.panel();
     
     for(int i = 0; i < 200; i++) {
       car.brake();

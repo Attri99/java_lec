@@ -14,6 +14,7 @@ package pkg06_constructor;
 public class Sample {
 
   int number;
+  
   // (디폴트 형식의) 생성자
   // 생성자가 없는 경우에만 자동으로 생성되는 생성자
   Sample(){

@@ -19,13 +19,13 @@ public class Car {
       return;
     
     speed++; 
-    fuel --;
-  }
+    }
     void brake() {
       if(speed == 0)
         return;
       speed--;
     }
+    
    void gasStation(int fuel) {
      this.fuel  += fuel;
      // this : gasStaiton 메소드를 호출한 인스턴스
