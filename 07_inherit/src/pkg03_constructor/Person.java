@@ -4,15 +4,15 @@ public class Person {
 
   private String name;
   
+  // 다른 생성자가 존재하는 경우 디폴트 생성자는 자동으로 생성되지 않으므로 직접 만들어야 한다.
   public Person() {
     
-  } // default 형식의 생성자는 무조건 만들어놔야 한다. 누가 가져다 쓸지모르기 때문.
+  } 
 
   public Person(String name) {
     super();
     this.name = name;
-  } // 여기 생성자가 이미 존재하기 때문에 없다고 하더라도 디폴트가 자동으로 생성되지 않는다.
-
+  } 
   public String getName() {
     return name;
   }
