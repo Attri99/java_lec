@@ -5,11 +5,7 @@ public class Rectangle {
   private int width;
   private int height;
   
-  public Rectangle() {
-    
-  }
-    
-  public Rectangle(int width, int height) {
+    public Rectangle(int width, int height) {
     super();
     this.width = width;
     this.height = height;
