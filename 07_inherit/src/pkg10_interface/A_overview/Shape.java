@@ -9,7 +9,6 @@ package pkg10_interface.A_overview;
  * 3. jdk-8(jdk-1.8)0 이후로 추가된 메소드가 있다.
  *  1) 디폴트 메소드
  *    default 반환타입 메소드명(매개 변수){
- *    
  *    }
  *  2) 정적 메소드
  *   static 반환타입 메소드명(매개변수) {

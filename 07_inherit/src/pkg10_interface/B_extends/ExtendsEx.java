@@ -14,15 +14,14 @@ public class ExtendsEx {
     ((Phone)p1).sms();
     
     Computer p2 = new Smartphone();
+    
     p2.game();
-    ((Electronic) p2).powerOn();
+    p2.powerOn();
     ((Electronic) p2).powerOff();
     ((Phone) p2).call();
     ((Phone) p2).sms();
     
-    
-    
-    
+    System.out.println();   
     
     Phone p3 = new Smartphone();
     ((Electronic) p3).powerOn();

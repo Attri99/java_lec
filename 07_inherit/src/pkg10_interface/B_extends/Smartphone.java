@@ -8,25 +8,31 @@ package pkg10_interface.B_extends;
  */
 public class Smartphone  implements Computer, Phone{
 
-  
+  @Override
+  public void powerOn() {
+    System.out.println("전원 ON");
+  }
+
   @Override
   public void powerOff() {
-    
-  }  
-  @Override public void powerOn() {
-    
+    System.out.println("전원 OFF");
   }
-  
-  @Override
-  public void game() {
-    
-  }
+
   @Override
   public void call() {
-    
+    System.out.println("전화");
   }
+
   @Override
   public void sms() {
-    
+      System.out.println("문자");
   }
+
+  @Override
+  public void game() {
+      System.out.println("게임");
+  }
+
+  
+  
 }
