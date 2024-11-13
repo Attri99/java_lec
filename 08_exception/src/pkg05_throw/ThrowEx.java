@@ -2,9 +2,9 @@ package pkg05_throw;
 
 public class ThrowEx {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws RuntimeException {
     try {
-      int score = 99;
+      int score = 500;
       if(score < 0 || score > 100) {
         throw new RuntimeException(score + "점은 잘못된 점수입니다.");
       }      
@@ -22,10 +22,8 @@ public class ThrowEx {
     if(age <0 || age >150) {
       throw new RuntimeException(age +"살은 존재할 수 없습니다.");
       }
-    System.out.println(age + "살이군요.");
     
-    
-    
+    System.out.println(age + "살이군요.");    
     
     
   }

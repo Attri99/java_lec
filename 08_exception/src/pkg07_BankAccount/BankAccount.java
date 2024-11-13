@@ -1,6 +1,6 @@
 package pkg07_BankAccount;
 
-public class BankAccount extends Exception {
+public class BankAccount {
 
   
   String accNo;
@@ -14,28 +14,29 @@ public class BankAccount extends Exception {
   
   /**
    * 입금 처리
-   * @param money 입금액. 마이너스 금액 불가 
+   * @param money 입금액. 
+   * @exception 마이너스 입금액 불가 
    */
    
-  void deposit(long money) {
+   public void deposit(long money) {
     try {
       if (money < 0) {
-        throw new RuntimeException("마이너스 금액 불가");
+        throw new RuntimeException(money + "원은 입금할 수 없습니다.");
       }
       balance += money;
       
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
-    }
-  
-  
+    }  
   
   /**
    * 
    * 출금 처리
-   * @param money 출금액. 마이너스 출금 불가. 잔액보다 큰 금액 출금 불가.
+   * @param money 출금액. 
    * @return 실제 출금액.
+   * @exception 마이너스 출금 불가
+   * @exception 잔액보다 큰 금액 출금 불가
    */
   long withdrawal(long money) {
 //    if(money <= 0)
@@ -53,7 +54,7 @@ public class BankAccount extends Exception {
         throw new RuntimeException("잔액이 부족합니다.");
       }
       balance -= money;
-            
+      value = money;            
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
@@ -66,11 +67,6 @@ public class BankAccount extends Exception {
    * @param money 이체할 금액
    */
   void transfer(BankAccount bankAccount, long money) {
-//    long withdrawalMoney = this.withdrawal(money);
-//    bankAccount.deposit(withdrawalMoney);
-    //bankAccount.deposit(this.withdrawal(money));
-    
-    
       bankAccount.deposit(this.withdrawal(money));
     
   }

@@ -11,8 +11,8 @@ public class BankAccountEx {
       BankAccount momAcc = new BankAccount("010-1234-5678", 1_000_000);
       
 //      momAcc.transfer(myAcc, -100000);
-//      momAcc.transfer(myAcc, 10_000_000);
-      momAcc.deposit(-5);
+//     momAcc.transfer(myAcc, 10_000_000);
+//      momAcc.deposit(-5);
       momAcc.transfer(myAcc, 10_0000);
       
       myAcc.inquiry();

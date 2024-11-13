@@ -15,7 +15,7 @@ public class BankAccount {
   /**
    * 입금 처리
    * @param money 입금액. 
-   * @throws DepositException 마이너스 금액 불가
+   * @throws DepositException 마이너스 금액 불가, 코드 1000
    */
    
   public void deposit(long money) throws DepositException{
@@ -24,8 +24,7 @@ public class BankAccount {
     } 
     balance += money;
     }
-  
-  
+   
   
   /**
    * 
@@ -50,7 +49,7 @@ public class BankAccount {
    * @throws DepositException,  입금 처리 예외
    * @throws WithdrawalException 출금 예외
    */
-  void transfer(BankAccount bankAccount, long money) throws DepositException, WithdrawalException {
+  public void transfer(BankAccount bankAccount, long money) throws DepositException, WithdrawalException {
     bankAccount.deposit(this.withdrawal(money));
   }
   

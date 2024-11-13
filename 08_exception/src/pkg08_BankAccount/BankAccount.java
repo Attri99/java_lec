@@ -32,7 +32,7 @@ public class BankAccount {
    * 출금 처리
    * @param money 출금액. 
    * @return 실제 출금액.
-   * @throws 마이너스 출금 불가. 잔액보다 큰 금액 출금 불가.
+   * @throws RuntimeException 마이너스 출금 불가. 잔액보다 큰 금액 출금 불가.
    */
   public long withdrawal(long money) throws RuntimeException {
     if(money <= 0)
