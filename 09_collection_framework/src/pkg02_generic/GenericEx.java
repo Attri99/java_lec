@@ -1,5 +1,7 @@
 package pkg02_generic;
 
+import java.util.Arrays;
+
 public class GenericEx {
 
   public static void main(String[] args) {
@@ -20,6 +22,8 @@ public class GenericEx {
     container3.setItem(new Car("bmw", "x7"));
     System.out.println(container3.getItem().getBrand());
     System.out.println(container3.getItem().getModel());
-    System.out.println(container3.getItem());
-}
+    System.out.println(container3.getItem()); // .toString()이 생략 가능하기 때문에 Car 클래스에서 Override 해줘야 한다.
+    
+    
+  }
   }

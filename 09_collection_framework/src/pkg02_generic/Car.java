@@ -8,8 +8,8 @@ public class Car{
   
   public Car(String model, String brand) {
     super();
-    Model = model;
-    Brand = brand;
+    this.Brand = brand;
+    this.Model = model;
   }
   
   
@@ -32,11 +32,11 @@ public class Car{
     Brand = brand;
   }
 
-
   @Override
   public String toString() {
     return "Car [Model=" + Model + ", Brand=" + Brand + "]";
   }
+  
   
   
   

@@ -86,7 +86,7 @@ public class ArrayListEx {
       System.out.println(words[i]);
     }
     
-    // for문에서 같은 메소드가 여러 번 호출되는 경우 아래와 같은 방법으로 한 번만 호출한 뒤 변수에 필드에 저장하여 사용할 수 있다.
+    // size() 메소드를 한 번만 호출할 수 있도록 초기화 영역에서 변수로 처리한다.
     for(int i=0, size = seasons.size(); i < size; i++) {
       System.out.println(seasons.get(i));
     }
