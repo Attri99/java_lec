@@ -1,4 +1,4 @@
-package pkg08_BankAccount;
+package pkg09_BankAccount;
 
 public class BankAccountEx {
 
@@ -12,13 +12,16 @@ public class BankAccountEx {
       
 //      momAcc.transfer(myAcc, -100000);
 //      momAcc.transfer(myAcc, 10_000_000);
+      momAcc.deposit(-5);
       momAcc.transfer(myAcc, 10_0000);
       
       myAcc.inquiry();
       momAcc.inquiry();
       
-    } catch (Exception e) {
+    } catch (BankAccountException e) {
       System.out.println(e.getMessage());
+      System.out.println(e.getCode());
+      
     }
 
   }

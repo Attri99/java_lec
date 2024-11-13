@@ -13,12 +13,16 @@ public class ThrowEx {
     } catch (Exception e) {
       System.out.println(e.getMessage());
     }
+    
+    
     // try 블록 외부에서 throw 문 : throws 문으로 예외를 회피한다.
     
     int age = 500;
+    
     if(age <0 || age >150) {
       throw new RuntimeException(age +"살은 존재할 수 없습니다.");
       }
+    System.out.println(age + "살이군요.");
     
     
     
