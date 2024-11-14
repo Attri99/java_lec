@@ -1,7 +1,8 @@
-package pkg12_bakery;
+package pkg06_bakery;
 
 public class BakeryEx {
-
+  
+  
   public static void main(String[] args) {
     
     Customer customer = new Customer(0, 10000);

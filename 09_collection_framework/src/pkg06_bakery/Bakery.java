@@ -1,4 +1,7 @@
-package pkg12_bakery;
+package pkg06_bakery;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Bakery {
 
@@ -36,7 +39,7 @@ public class Bakery {
     this.money = money;
   }
   
-  //java의 문법상 두 가지를 리턴할 수 없기 때문에 BreadNChange라는 하나의 클래스로 묶어서 정보를 전달
+  //java 의 문법상 두 가지를 리턴할 수 없기 때문에 BreadNChange라는 하나의 클래스로 묶어서 정보를 전달
   /**
    * 판매처리
    * 
@@ -44,25 +47,38 @@ public class Bakery {
    * @param bread 고객이 사려는 빵의 갯수
    * @return 판매할 빵의 갯수와 잔돈
    */
-  public BreadNChange sell(int money, int bread) {
-    // 판매할 빵이 부족한 경우
-    if(this.bread < bread) {
-      System.out.println("빵이 부족하다");
-      return null;
-    }
+  public Map<String, Integer> sell(int money, int bread) {
+    Map<String, Integer> map = null;
+    
+    try {
+      
+      // 판매할 빵이 부족한 경우
+      if(this.bread < bread) {
+        throw new RuntimeException("빵이 부족해요,");
+      }
+      
+    
     // 고객이 낸 돈이 부족한 상황
     if(money < bread * price) {
-      System.out.println("돈 더 주세요");
-      return null;
+      throw new RuntimeException("돈 더 주세요.");
     }
     
     // 판매 처리하기
-    
     this.money += bread * price;
     this.bread -= bread;
     
-    //반환하기
-    return new BreadNChange(bread, money - bread * price);
+    // 반환값 만들기
+    map = Map.of("bread", bread, "change", money - bread * price);
+    
+    } catch (Exception e) {
+      System.out.println(e.getMessage());
+    }
+    
+    // 반환
+    return map;
+    
+   
+    
   }
   
 }
