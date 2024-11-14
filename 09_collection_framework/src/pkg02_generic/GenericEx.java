@@ -1,7 +1,5 @@
 package pkg02_generic;
 
-import java.util.Arrays;
-
 public class GenericEx {
 
   public static void main(String[] args) {
