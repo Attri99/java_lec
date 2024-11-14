@@ -135,6 +135,7 @@ public class Class01_String {
     
     System.out.println(str.substring(0, spaceIndex));
     System.out.println(str.substring(spaceIndex + 1));
+    System.out.println(spaceIndex);
     
   }
   
@@ -244,6 +245,7 @@ public class Class01_String {
   
   public static void main(String[] args) {
     
+    practice01();
   }
 
   public static void practice01() {
@@ -252,7 +254,9 @@ public class Class01_String {
     String uri = "http://localhost:8080/project/list.do";
     String contextPath = "/project";
     
-    
+    String[] result = uri.split("\\/");
+    //System.out.println(Arrays.toString(result));
+    System.out.println(result[result.length -1]);
   }
   
   public static void practice02() {
