@@ -107,15 +107,15 @@ public class HashMapEx {
    public static void d() {
      
      // Map 인스턴스 생성
-     Map<String, Object> map = Map.of("soonbun", 1150, "bunho", new HashSet<Integer>(Arrays.asList(2, 10, 11, 23, 43, 9)))
+     Map<String, Object> map = Map.of("soonbun", 1150, "bunho", new HashSet<Integer>(Arrays.asList(2, 10, 11, 23, 43, 9)));
     //Set에 모든 Entry 저장
    Set<Entry<String, Object>> entries = map.entrySet();
    
    //for문 순회
    for(Entry<String, Object> entry : entries) {
-     System.out.println(entry.getKey() + " : ");
+     System.out.println(entry.getKey() + " : " + entry.getValue());
    }
-   
+   }
    public static void main(String[] args) {
     
     
