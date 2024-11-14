@@ -1,7 +1,11 @@
 package pkg05_HashMap;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /*
  * Map 인터페이스
@@ -60,9 +64,63 @@ public class HashMapEx {
      System.out.println(map);
      
    }
-  public static void main(String[] args) {
+   
+   /**
+    * Immutable 객체
+    * 
+    */
+   public static void b() {
+     
+     Map<String, Object> map = Map.of("brand", "genesis", "model", "G80");
+     
+     // Entry 추가 (Immutable 하기 때문에 불가능)
+     //map.put("price", 8000);
+     
+     // Entry 제거 (Immutable 하기 때문에 불가능)
+     //map.remove("brand");
+     
+     // Entry 수정 (Immutable 하기 때문에 불가능)
+     map.put("brand", "volvo");
+     map.put("model", "XC90");
+     
+     System.out.println(map);
+   }
+
+   public static void c() {
+     
+     // Map 인스턴스 생성
+     Map<String, Object> map = new HashMap<String, Object>();
+     map.put("title", "파묘");
+     map.put("actors", Arrays.asList("최민석", "김고은", "유해진", "이도현"));
+     map.put("star", 9.0);
+     
+     // Key 를 저장하는 Set 생성
+//     Set<String> keys = map.keySet();
+//     System.out.println(keys);
+     
+     // Set 순회하면서 Map 의 Value 확인
+     for(String key : map.keySet()) {
+       System.out.println(map.get(key));
+     }
+   }
+   
+   public static void d() {
+     
+     // Map 인스턴스 생성
+     Map<String, Object> map = Map.of("soonbun", 1150, "bunho", new HashSet<Integer>(Arrays.asList(2, 10, 11, 23, 43, 9);
+   }
+    //Set에 모든 Entry 저장
+   Set<Entry<String, Object>> entries = map.entrySet();
+   
+   //for문 순회
+   for(Entry<String, Object> entry : entries) {
+     System.out.println(entry.getKey() + " : ");
+   }
+   
+   public static void main(String[] args) {
     
-    a();
+    
+    d();
   }
 
 }
