@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /* java.io.File 클래스
+ * 1. 디렉터리/파일의 정보(이름, 경로, 크기, 최종 수정일 등)를 확인할 수 있다.
+ * 2. 디렉터리/파일을 만들거나 삭제할 수 있다.
+ * 
 */
 
 /*
@@ -32,9 +35,8 @@ public class FileEx {
     File dir = new File("D:\\storage");
 
     // 디렉터리가 없으면 만들기
-    if (!dir.exists()) {
+    if (!dir.exists())
       dir.mkdirs();
-    }
 
     // 확인
     System.out.println(dir.getName() + "디렉터리가 생성되었습니다.");
@@ -42,7 +44,8 @@ public class FileEx {
 
   public static void b() {
     // 디렉터리 삭제하기 : 비어 있는 디렉터리만 삭제할 수 있다.
-
+    
+    // File 인스턴스 생성
     File dir = new File("D:\\storage");
 
     // 디렉터리가 있으면 삭제하기
@@ -51,7 +54,8 @@ public class FileEx {
       // dir.deleteOnExit; JVM이 종료되면 삭제한다.
 
     }
-
+    
+    // 확인
     System.out.println(dir.exists() ? "삭제 실패" : "삭제 성공");
   }
 
@@ -59,7 +63,7 @@ public class FileEx {
     // 디렉터리 / 파일 정보 확인
 
     // File 인스턴스 생성
-    File javaHome = new File("C://Program Files\\Java\\jdk=17");
+    File javaHome = new File("C:\\Program Files\\Java\\jdk-17");
 
     // 하위 디렉터리 /파일을 모두 File 인스턴스로 가져오기
     File[] files = javaHome.listFiles();
@@ -78,6 +82,7 @@ public class FileEx {
 
       // 유형
       builder.append(String.format("%-10s", file.isFile() ? "파일" : "파일 폴더"));
+      
       // 크기
       long size = file.isDirectory() ? 0 : file.length();
       if (size != 0) {
@@ -91,41 +96,40 @@ public class FileEx {
   }
 
   public static void d() {
-    
+
     /* D:\\2024\\11\15 디렉터리 만들기 실습 */
-    
+
     String pathname = "D:\\" + DateTimeFormatter.ofPattern("yyyy\\MM\\dd").format(LocalDate.now());
     File dir = new File(pathname);
-    
-    if(!dir.exists())
+
+    if (!dir.exists())
       dir.mkdirs();
-    
+
     System.out.println(dir.getPath() + " 디렉터리가 생성되었습니다.");
-    
+
   }
 
   public static void e(String pathname) {
-    /* D:\\2024 디렉터리 삭제 연습*/
+    /* D:\\2024 디렉터리 삭제 연습 */
     /*
-     * \\2024\\11\\15삭제 -> e("D:\\2024\\11\\15")
-     * \\2024\\11 삭제 -> e("D:\\2024\\11")
-     * \\2024 삭제 -> e("D:\\2024")
-     *             -> e("D:") 종료시점 (상위 디렉터리가 없으면 종료)
+     * \\2024\\11\\15삭제 -> e("D:\\2024\\11\\15") \\2024\\11 삭제 -> e("D:\\2024\\11")
+     * \\2024 삭제 -> e("D:\\2024") -> e("D:") 종료시점 (상위 디렉터리가 없으면 종료)
      */
-    
+
     File dir = new File(pathname);
     File parent = dir.getParentFile();
     if (parent == null)
       return;
-    
+
     System.out.println(dir.getPath() + " 디렉터리를 삭제합니다. ");
     dir.delete();
-    
+
     e(dir.getParent());
   }
+
   public static void main(String[] args) {
-    
-    e("D:\\2024\\11\\15");
+    c();
+   
   }
 
 }

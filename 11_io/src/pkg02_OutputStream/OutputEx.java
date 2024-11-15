@@ -57,7 +57,7 @@ public class OutputEx {
   
   public static void b() {
     
-    // 추가 모드 : 없으며 만들고, 있으면 추가
+    // 추가 모드 : 없으면 만들고, 있으면 추가
     
     File dir =  new File("\\storage");
     if(!dir.exists())
@@ -68,7 +68,7 @@ public class OutputEx {
     FileOutputStream out = null;
     
     try {
-      out = new FileOutputStream(file, true);
+      out = new FileOutputStream(file, true); // true : 추가 모드 설정
       
       int c = '안';
       out.write(c);
@@ -100,6 +100,7 @@ public class OutputEx {
     BufferedOutputStream out = null;
     
     try {
+      
       // 버퍼를 이용해 출력 데이터를 모아서 한 번에 처리하므로 출력 속도가 향상된다.
       out = new BufferedOutputStream(new FileOutputStream(file)); // Fileoutput이 메인 스트림
             
