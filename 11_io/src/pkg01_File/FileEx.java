@@ -94,13 +94,13 @@ public class FileEx {
     
     /* D:\\2024\\11\15 디렉터리 만들기 실습 */
     
-    String pathname = "D:\\" + DateTimeFormatter.ofPattern("yyyy\\MM\\dd".formatted(LocalDate.now()));
+    String pathname = "D:\\" + DateTimeFormatter.ofPattern("yyyy\\MM\\dd").format(LocalDate.now());
     File dir = new File(pathname);
     
     if(!dir.exists())
       dir.mkdirs();
     
-    System.out.println(dir.getName() + " 디렉터리가 생성되었습니다.");
+    System.out.println(dir.getPath() + " 디렉터리가 생성되었습니다.");
     
   }
 
