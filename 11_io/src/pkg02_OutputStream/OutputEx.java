@@ -188,7 +188,7 @@ public class OutputEx {
     }
   } 
   public static void main(String[] args) {
-    e();
+    a();
     
   }
 }
