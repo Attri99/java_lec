@@ -68,10 +68,19 @@ public class ReaderEx {
     
     try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file)))){
       
+      //읽을 단위 : String
       String line = null;
       
+      // 읽은 데이터 저장할 StringBuilder
       StringBuilder builder =  new StringBuilder();
       
+      // readLine() : BufferedReader 클래스에서 지원하는 메소드. 읽은 라인을 String으로 반환하고, 파일이 끝나면 null을 반환한다.
+      while ((line = in.readLine()) != null) {
+        builder.append(line);
+      }
+      
+      //확인
+      System.out.println(builder.toString());
       
     } catch (IOException e) {
       e.printStackTrace();
@@ -79,6 +88,6 @@ public class ReaderEx {
   }
   
   public static void main(String[] args) {
-  b();
+  c();
 }
 }
