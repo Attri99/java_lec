@@ -74,7 +74,7 @@ public class InPutEx {
       int i = 0;
       
       // 파일의 종료까지 계속 읽기 : read(byte[]) 메소드는 읽은 내용을 인자에 저장하고, 읽은 바이트 수를 반환한다. 파일이 종료되면 -1을 반환한다.
-      int readbyte;
+      int readbyte = 0;
       while( (readbyte = in.read(b)) != -1) {
         System.arraycopy(b, 0, bytes, i, readbyte);
         i += readbyte;
@@ -138,6 +138,7 @@ public class InPutEx {
     List<Car> cars = new ArrayList<Car>();
     
     try {
+      
       in = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)));
       
       // EOFExcetion 예외 발생 전까지 반복하는 무한 루프
@@ -152,6 +153,7 @@ public class InPutEx {
       }
       
     }catch (EOFException e) {
+      
       //List 확인
       for(int i=0, size = cars.size(); i < size; i++) {
         System.out.println(cars.get(i));
@@ -169,7 +171,7 @@ public class InPutEx {
     }
   }
   public static void main(String[] args) {
-   a();
+   d();
   }
 
 }
