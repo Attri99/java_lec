@@ -34,4 +34,10 @@ public class Car implements java.io.Serializable {
   public void setModel(String model) {
     this.model = model;
   }
+
+  @Override
+  public String toString() {
+    return "Car [brand=" + brand + ", model=" + model + "]";
+  }
+  
 }

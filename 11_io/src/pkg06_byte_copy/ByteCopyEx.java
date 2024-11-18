@@ -24,12 +24,21 @@ public class ByteCopyEx {
       
       long begin = System.currentTimeMillis();
       
+      //읽을 단위 : int 변수로 1 바이트씩 복사하기
+      /* 
+       * int c;
+       * while( (c= in.read()) != -1) {
+       * out.write(c);
+       * } 
+       * */
+      
       //읽을 단위 : int 변수로 4 바이트씩 읽는다.
       byte[] b = new byte [4];
       int readbyte = 0;
       while((readbyte = in.read(b)) != -1) {
         out.write(b,0,readbyte); // readbyte : 읽어들인 수
       }
+      
       long end = System.currentTimeMillis();
       
       System.out.println(writefile.getPath() + " 파일이 복사되었습니다.");
