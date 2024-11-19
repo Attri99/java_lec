@@ -177,6 +177,7 @@ public class OpenAPIEx {
   public static void d() {
     try {
     
+      // XML 받아서 JSONObject로 바꿔주기
     String apiURL = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1168066000";
     
     StringBuilder builder = new StringBuilder();
@@ -228,6 +229,36 @@ public class OpenAPIEx {
     
   }
   
+  
+  public static void e() throws Exception{
+    
+    // 기상청 RSS (XML 받아서 Document 이용해서 파싱하기)
+    
+    String apiURL = "http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1168066000";
+    
+    DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+    DocumentBuilder docBuilder = builderFactory.newDocumentBuilder();
+    Document doc = docBuilder.parse(apiURL);
+    
+    doc.getDocumentElement().normalize();
+    
+    NodeList nodeList = doc.getElementsByTagName("data"); //19개의 data xorm
+    
+    for(int i=0, length = nodeList.getLength(); i<length; i++) {
+      
+      Node node = nodeList.item(i); // 각 <data> 태그
+      Element element = (Element) node; // getElementsByTagName() 메소드 사용을 위해 Node -> Element로 Downcasting
+      System.out.println("hour : " + element.getElementsByTagName("hour").item(0).getTextContent());
+      System.out.println("temp : " + element.getElementsByTagName("temp").item(0).getTextContent());
+      System.out.println("tmx : " + element.getElementsByTagName("tmx").item(0).getTextContent());
+      System.out.println("tmn : " + element.getElementsByTagName("tmn").item(0).getTextContent());
+      System.out.println("wfKor : " + element.getElementsByTagName("wfKor").item(0).getTextContent());
+      System.out.println("---------------");
+    }
+    
+    
+    
+  }
   
   public static void main(String[] args) throws Exception {
 
