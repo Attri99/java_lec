@@ -13,6 +13,8 @@ public class HttpEx {
   public static void main(String[] args) {
 
     try {
+      
+      // URL 인스턴스 생성
       URL url = new URL("https://www.google.com");
       
       // HttpURLConnection 인스턴스 생성(접속 정보를 관리하는 클래스)
@@ -20,19 +22,21 @@ public class HttpEx {
       
       //응답 코드 (정상 : 200, 클라이언트 측 오류 :4xx, 서버 측 오류 :5xx)
       int responseCode = conn.getResponseCode();
-      if(responseCode == 200) {
+      if(responseCode == HttpURLConnection.HTTP_OK) {// if(responseCode == 200
         System.out.println("정상 접속");
       } else {
         System.out.println("접속 불가");
       }
       
       // 요청 메소드 (GET, POST)
-      String method = conn.getRequestMethod();
+      String method = conn.getRequestMethod(); // 요청 메소드 확인
       System.out.println(method);
+      //conn.setRequestMethod("GET"); // 요청 메소드 설정
       
       // 요청 헤더(User-Agent, Content-type, Referer 등)
       String userAgent = conn.getRequestProperty("User-Agent");
       System.out.println(userAgent);
+      // conn.setRequestProperty("Content-Type", "application/json"); 요청 헤더 설정
       
       // 접속 해제
       if(conn != null)
