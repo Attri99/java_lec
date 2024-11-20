@@ -5,11 +5,11 @@ import java.util.function.Function;
 /*
  * package java.util.function;
  * 
- * @buffel
- * 
- * 
- * */
-
+ * @FunctionalInterface
+ * public interface Function<T, R> {
+ *  R apply(T t);
+ *  }
+ */
 
 public class Class03_Function {
 
@@ -20,7 +20,7 @@ public class Class03_Function {
     System.out.println(function.apply("10"));
     
     // Function 타입의 매개변수에 Lambda Expression 전달
-    
+    a(name -> name + "님");
   }
 
   public static void a(Function<String, String> function) {

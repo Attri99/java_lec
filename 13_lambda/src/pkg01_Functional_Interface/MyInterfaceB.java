@@ -2,5 +2,5 @@ package pkg01_Functional_Interface;
 
 @FunctionalInterface
 public interface MyInterfaceB {
-  void method(); 
+  void method(String param); 
 }

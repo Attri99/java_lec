@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collector;
 import java.util.stream.Stream;
 
 /*
@@ -12,16 +13,16 @@ import java.util.stream.Stream;
  * 
  * public interface Stream<T> {
  *  Stream<T> filter (Predicate <T> predicate);  // Predicate 결과가 true인 데이터만 stream으로 반환
- *  Stream<R> map(Function<T, R> mapper);         // Function의 반환 결과를
- *  void forEach(Consumer <T> action}     
- *  }        // forEach 에 메소드를 호출한 
+ *  Stream<R> map(Function<T, R> mapper);         // Function의 반환 결과를 Stream으로 반환
+ *  void forEach(Consumer <T> action}             // forEach 메소드를 호출한 Stream의 모든 요소를 Consumer 로 하나씩 전달
+ *  }         
  * */
 public class StreamEx {
 
-  public static void a() {
+  public static void a() throws Exception {
     
     // stream 인스턴스 생성
-    Stream<String> s1 = Stream.of("캥거루", "코알라", "복숭아", "펭귄");
+    Stream<String> s1 = Stream.of("캥거루", "코알라", "이구아나", "펭귄");
     
     String [] array = {"사과", "바나나", "복숭아", "망고"};
     Stream<String> s2 = Arrays.stream(array);
@@ -31,8 +32,8 @@ public class StreamEx {
    
     File license = new File("C:\\Program Files\\Java\\jdk-17", "LICENSE");
     BufferedReader in = new BufferedReader(new FileReader(license));
-    Stream<String> s4 = in.lines(); // 파일의 각 라인을 요소로 저장하고 있는
-    StringBuilder builder = new StringBuilder();
+    Stream<String> s4 = in.lines(); // 파일의 각 라인을 요소로 저장하고 있는 Stream
+    
     
     // forEach 메소드 활용
     s1.forEach(animal -> {
@@ -44,25 +45,24 @@ public class StreamEx {
     s3.forEach(nation -> {
       System.out.println(nation);
     });
+    StringBuilder builder = new StringBuilder();
+    s4.forEach(line -> builder.append(line).append("\n"));
+    System.out.println(builder.toString());
     in.close();
-  
-  }
-    
-  
+   
   //연습. JAVA_HOME의 모든 디렉터리/ 파일이름 출력하기
   File javaHome = new File("C:\\Program Files\\Java\\jdk-17");
   File[] files = javaHome.listFiles();
-  
-  Stream<File> s4 = Arrays.stream(files);
-  s4.forEach(file -> System.out.println(file.getName()));
+  Stream<File> s5 = Arrays.stream(files);
+  s5.forEach(file -> System.out.println(file.getName()));
       
-  
+  }
   public static void b() {
     
     List<Integer> numbers = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
     
     numbers.stream()
-    .filter(number -> number % 3 == 0)
+    .filter(number -> number % 3 == 0) // Stream 요소 중 number % 3 == 0 결과가 true인 요소(3의 배수)만 별도 Stream으로 반환
     .forEach(number -> System.out.println(number));
     
   List<Fruit> fruits = Arrays.asList(
@@ -86,7 +86,6 @@ public class StreamEx {
     
   }
    
-  
   public static void c() {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     numbers.stream()
@@ -108,7 +107,7 @@ public class StreamEx {
 
     File javaHome = new File("C:\\Program Files\\Java\\jdk-17");
     Arrays.stream(javaHome.listFiles())
-    .map(item -> item.isDirectory() ? item.getName() + " 폴더" : item-)
+    .map(item -> item.isDirectory() ? item.getName() + " 폴더" : item);
     
     
     
@@ -120,17 +119,16 @@ public class StreamEx {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     
     List<Integer> evenNumbers = numbers.stream()
-    .filter(number -> number % 2 == 0
-    .collect(Collector.toList()));
+    .filter(number -> number % 2 == 0).collect(Collector.toList());
     
     List<Integer> oddNumbers = numbers.stream()
-        .filter(number -> number % 2 == 1
-        .collect(Collector.toList()));
+        .filter(number -> number % 2 == 1)
+        .collect(Collector.of());
         
   }
   
-  public static void main(String[] args) {
-    b();
+  public static void main(String[] args) throws Exception {
+    a();
   }
   
 }

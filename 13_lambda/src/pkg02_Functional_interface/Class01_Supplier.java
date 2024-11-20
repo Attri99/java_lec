@@ -5,6 +5,7 @@ import java.util.function.Supplier;
 /*
  * package java.util.function
  * 
+ * @FunctionalInterface
  * public interface Supplier<T>{
  *  T get();
  * }
@@ -18,7 +19,7 @@ public class Class01_Supplier {
    Supplier<String> supplier = () -> "Hello World";
     System.out.println(supplier.get());
     
-    //타입이 Supplier인 매개변수로 Lambda Expression
+    //타입이 Supplier인 매개변수로 Lambda Expression 전달
     a(() -> 10);
   }
   
