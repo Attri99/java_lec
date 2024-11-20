@@ -1,0 +1,31 @@
+package pkg02_Functional_interface;
+
+import java.util.function.Function;
+
+/*
+ * package java.util.function;
+ * 
+ * @buffel
+ * 
+ * 
+ * */
+
+
+public class Class03_Function {
+
+  public static void main(String[] args) {
+    // Lambda Expression
+    
+    Function <String, Integer> function = str -> Integer.parseInt(str);
+    System.out.println(function.apply("10"));
+    
+    // Function 타입의 매개변수에 Lambda Expression 전달
+    
+  }
+
+  public static void a(Function<String, String> function) {
+    System.out.println(function.apply("김성훈"));
+  }
+  
+  
+}
